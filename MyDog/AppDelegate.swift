@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let isLoggedIn = false//UserDefaults.standard.bool(forKey: isLoginDoneUserDefaultsKey)
+        if isLoggedIn {
+            let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: rootTabbarViewController)
+            self.window?.rootViewController = rootController
+        }
+        else{
+            let rootController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            let loginNavigationController = UINavigationController(rootViewController: rootController)
+            self.window?.rootViewController = loginNavigationController
+        }
+        
         return true
     }
 

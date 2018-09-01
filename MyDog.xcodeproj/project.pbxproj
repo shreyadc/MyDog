@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		7A43FEDD213A8A1F00F660AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43FEDC213A8A1F00F660AE /* AppDelegate.swift */; };
-		7A43FEDF213A8A1F00F660AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43FEDE213A8A1F00F660AE /* ViewController.swift */; };
 		7A43FEE2213A8A1F00F660AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43FEE0213A8A1F00F660AE /* Main.storyboard */; };
 		7A43FEE4213A8A2200F660AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A43FEE3213A8A2200F660AE /* Assets.xcassets */; };
 		7A43FEE7213A8A2200F660AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43FEE5213A8A2200F660AE /* LaunchScreen.storyboard */; };
 		7A43FEF2213A8A2200F660AE /* MyDogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43FEF1213A8A2200F660AE /* MyDogTests.swift */; };
+		7A43FEFD213A8ACF00F660AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43FEFC213A8ACF00F660AE /* HomeViewController.swift */; };
+		7A43FEFF213A8C5500F660AE /* MyDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43FEFE213A8C5500F660AE /* MyDogViewController.swift */; };
+		7A43FF04213A8D1300F660AE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43FF02213A8D1300F660AE /* LoginViewController.swift */; };
+		7A43FF05213A8D1300F660AE /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A43FF03213A8D1300F660AE /* LoginViewController.xib */; };
+		7A43FF0C213A96DA00F660AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43FF0B213A96DA00F660AE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +32,6 @@
 /* Begin PBXFileReference section */
 		7A43FED9213A8A1F00F660AE /* MyDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43FEDC213A8A1F00F660AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A43FEDE213A8A1F00F660AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A43FEE1213A8A1F00F660AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A43FEE3213A8A2200F660AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A43FEE6213A8A2200F660AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		7A43FEED213A8A2200F660AE /* MyDogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43FEF1213A8A2200F660AE /* MyDogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDogTests.swift; sourceTree = "<group>"; };
 		7A43FEF3213A8A2200F660AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A43FEFC213A8ACF00F660AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7A43FEFE213A8C5500F660AE /* MyDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDogViewController.swift; sourceTree = "<group>"; };
+		7A43FF02213A8D1300F660AE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7A43FF03213A8D1300F660AE /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		7A43FF0B213A96DA00F660AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +85,8 @@
 		7A43FEDB213A8A1F00F660AE /* MyDog */ = {
 			isa = PBXGroup;
 			children = (
+				7A43FF00213A8C5B00F660AE /* View Controllers */,
 				7A43FEDC213A8A1F00F660AE /* AppDelegate.swift */,
-				7A43FEDE213A8A1F00F660AE /* ViewController.swift */,
 				7A43FEE0213A8A1F00F660AE /* Main.storyboard */,
 				7A43FEE3213A8A2200F660AE /* Assets.xcassets */,
 				7A43FEE5213A8A2200F660AE /* LaunchScreen.storyboard */,
@@ -94,6 +102,34 @@
 				7A43FEF3213A8A2200F660AE /* Info.plist */,
 			);
 			path = MyDogTests;
+			sourceTree = "<group>";
+		};
+		7A43FF00213A8C5B00F660AE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A43FF0A213A96CD00F660AE /* Constants */,
+				7A43FF01213A8CFD00F660AE /* Login  */,
+				7A43FEFC213A8ACF00F660AE /* HomeViewController.swift */,
+				7A43FEFE213A8C5500F660AE /* MyDogViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7A43FF01213A8CFD00F660AE /* Login  */ = {
+			isa = PBXGroup;
+			children = (
+				7A43FF02213A8D1300F660AE /* LoginViewController.swift */,
+				7A43FF03213A8D1300F660AE /* LoginViewController.xib */,
+			);
+			path = "Login ";
+			sourceTree = "<group>";
+		};
+		7A43FF0A213A96CD00F660AE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7A43FF0B213A96DA00F660AE /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A43FF05213A8D1300F660AE /* LoginViewController.xib in Resources */,
 				7A43FEE7213A8A2200F660AE /* LaunchScreen.storyboard in Resources */,
 				7A43FEE4213A8A2200F660AE /* Assets.xcassets in Resources */,
 				7A43FEE2213A8A1F00F660AE /* Main.storyboard in Resources */,
@@ -197,8 +234,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A43FEDF213A8A1F00F660AE /* ViewController.swift in Sources */,
+				7A43FF0C213A96DA00F660AE /* Constants.swift in Sources */,
+				7A43FF04213A8D1300F660AE /* LoginViewController.swift in Sources */,
 				7A43FEDD213A8A1F00F660AE /* AppDelegate.swift in Sources */,
+				7A43FEFD213A8ACF00F660AE /* HomeViewController.swift in Sources */,
+				7A43FEFF213A8C5500F660AE /* MyDogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
