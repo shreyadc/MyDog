@@ -8,6 +8,7 @@ target 'MyDog' do
   # Pods for MyDog
   	pod 'Alamofire'
     pod ‘AlamofireImage’
+    pod 'OHHTTPStubs/Swift'
 
   target 'MyDogTests' do
     inherit! :search_paths

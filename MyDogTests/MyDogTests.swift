@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import OHHTTPStubs
 @testable import MyDog
 
 class MyDogTests: XCTestCase {
@@ -19,6 +20,38 @@ class MyDogTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testAPI()
+    {
+        let stubbedJSON = [
+            "status": "success",
+            "message": "https://images.dog.ceo/breeds/bulldog-boston/n02096585_1449.jpg"
+            ]
+        stub(condition: isHost("dog.ceo")) { (request) -> OHHTTPStubsResponse in
+            
+            return OHHTTPStubsResponse(jsonObject: stubbedJSON, statusCode: 200, headers: .none)
+        }
+        
+        let expectation = self.expectation(description: "calls the callback with a resource object")
+        
+        let networkManager = NetworkManager.shared
+        networkManager.fetchRandomDogImage(fromBreed: "bulldog") { (dog, error) in
+            XCTAssertNil(error)
+            XCTAssertEqual(dog?.status, stubbedJSON["status"])
+            XCTAssertEqual(dog?.breedName, "bulldog")
+            XCTAssertTrue((dog?.imageURL != nil))
+           
+            expectation.fulfill()
+        }
+        
+        
+        
+        self.waitForExpectations(timeout: 5.0, handler: .none)
+        
+        // Tear Down
+        //
+        OHHTTPStubs.removeAllStubs()
     }
     
     func testExample() {
