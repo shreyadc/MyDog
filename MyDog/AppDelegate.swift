@@ -16,15 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //Check login status and display appropriate root view controller
         let isLoggedIn = UserDefaults.standard.bool(forKey: isLoginDoneUserDefaultsKey)
         if isLoggedIn {
-            let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: rootTabbarViewController)
-            self.window?.rootViewController = rootController
+            displayHomePage()
         }
         else{
-            let rootController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            let loginNavigationController = UINavigationController(rootViewController: rootController)
-            self.window?.rootViewController = loginNavigationController
+           displayLoginPage()
         }
         
         return true
@@ -52,6 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
 
+extension AppDelegate{
+    func displayHomePage(){
+        let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: rootTabbarViewController)
+        self.window?.rootViewController = rootController
+    }
+    
+    func displayLoginPage(){
+        let rootController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let loginNavigationController = UINavigationController(rootViewController: rootController)
+        self.window?.rootViewController = loginNavigationController
+    }
 }
 

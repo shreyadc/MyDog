@@ -13,13 +13,11 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var loginButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpUI()
     }
 
@@ -31,7 +29,6 @@ class LoginViewController: UIViewController {
     func setUpUI()
     {
         self.title = "Login"
-        
         loginButton.layer.cornerRadius = 6.0
         validateLoginButton()
     }
@@ -43,7 +40,8 @@ class LoginViewController: UIViewController {
         
         if(validateLogin())
         {
-            displayHomePage()
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.displayHomePage()
         }else{
             let alert = UIAlertController(title: "Oops!", message: "Invalid Username or Password", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
@@ -55,13 +53,6 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController
 {
-    
-    func displayHomePage()
-    {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: rootTabbarViewController)
-        appDelegate.window?.rootViewController = rootController
-    }
     
     func validateLogin() -> Bool
     {
@@ -90,7 +81,7 @@ extension LoginViewController
 }
 
 extension LoginViewController: UITextFieldDelegate{
-    
+    //Text Field Delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         guard let inputText = textField.text else{ return false }
@@ -114,8 +105,9 @@ extension LoginViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        //block characters as required here
+        //block characters if required here
         
+        //validate enable/disable state of Login button after the textfield has been updated
         DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
             self.validateLoginButton()
         }

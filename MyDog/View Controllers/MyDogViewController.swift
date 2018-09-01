@@ -42,13 +42,19 @@ class MyDogViewController: UIViewController {
     {
         dataProvider.dog.bind { [unowned self] (dog) in
             if let imageURL = URL(string:dog?.imageURL ?? ""){
-               // self.dogImageView.af_setImage(withURL: imageURL, placeholderImage: UIImage(named: "placeholder"), filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: nil)
-                
                 self.dogImageView.af_setImage(withURL: imageURL, placeholderImage: nil, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .noTransition, runImageTransitionIfCached: false, completion: { (_) in
                         self.loadingView.stopAnimating()
                 })
             }
             self.dogNameLabel.text = dog?.breedName.uppercased()
+            
+        }
+        
+        dataProvider.errorAlertMsg.bind {(errorMsg) in
+            guard let errorMessage = errorMsg else { return }
+            let alert = UIAlertController(title: "Oops!", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 

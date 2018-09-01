@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Breed: Decodable {
     let status: String
     let breeds: [String: [String]]

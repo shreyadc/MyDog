@@ -14,90 +14,74 @@ class NetworkManager {
     
     static let shared = NetworkManager()
    
+    let fetchAllBreedsURL = "https://dog.ceo/api/breeds/list/all"
+    let fetchRandomDogImageFromBreedURL = "https://dog.ceo/api/breed/%@/images/random"
     
+    let parseErrorMsg = "Unable to parse data"
     
+    //Fetch all dog breeds api call
     func fetchAllDogBreeds(completion:@escaping (Breed?, Error?)->())
     {
-        let fetchAllBreedsURL = "https://dog.ceo/api/breeds/list/all"
         Alamofire.request(fetchAllBreedsURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData(completionHandler: { (response) in
             
             switch response.result {
             case .success(let data) :
                 do{
-                    //
-                    if let statusCode = response.response?.statusCode{
-                        
-                        //                    let responseJson = try JSONSerialization.jsonObject(with: data, options: [])
-                        //                    print(responseJson)
-                        
-                        
-                        let dogBreeds = try? JSONDecoder().decode(Breed.self, from: data)
-                        print(dogBreeds)
+                        let dogBreeds = try JSONDecoder().decode(Breed.self, from: data)
                         completion(dogBreeds, nil)
-                        
-                    }
+                }catch{
+                    completion(nil, self.createParseError())
                 }
                     
-                catch {
-                    let userDict:Dictionary<String,Any> = Dictionary()
-                    //completionHandler(userDict, nil)
-                    
-                }
+                
                 break
             case .failure(let error) :
-                print(error)
-                let userInfo = Dictionary<String,Any>()
-                //completionHandler(userInfo,error)
+                completion(nil,error)
                 break
             }
             
         })
     }
     
+    
+    //Fetch random dog image from breed api call
     func fetchRandomDogImage(fromBreed breed:String, completion:@escaping (Dog?, Error?)->())
     {
         
-        let url = "https://dog.ceo/api/breed/\(breed)/images/random"
-        
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData(completionHandler: { (response) in
+        let urlString = fetchRandomDogImageFromBreedURL.replacingOccurrences(of: "%@", with: breed)
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData(completionHandler: { (response) in
             
             switch response.result {
             case .success(let data) :
                 do{
-                    //
-                    if let statusCode = response.response?.statusCode{
-                        
-                        //                    let responseJson = try JSONSerialization.jsonObject(with: data, options: [])
-                        //                    print(responseJson)
-                        
-                        
-                        let dog = try? JSONDecoder().decode(Dog.self, from: data)
-                        guard let dogStatus = dog?.status, let dogImage = dog?.imageURL else {return}
-                        //print(dogBreeds)
-//                        let newDog = Dog(status: "", imageURL: <#T##String#>)
-//                        let newDog = Dog(status: dog!.status, imageURL: dog!.imageURL)
-                        let newDog = Dog(status: dogStatus, breedName: breed, imageURL: dogImage)
+                    
+                    let dog = try JSONDecoder().decode(Dog.self, from: data)
+                    let newDog = Dog(status: dog.status, breedName: breed, imageURL: dog.imageURL)
                         completion(newDog, nil)
-                        
-                    }
                 }
                     
                 catch {
-                    let userDict:Dictionary<String,Any> = Dictionary()
-                    //completionHandler(userDict, nil)
-                    
+                    completion(nil, self.createParseError())
                 }
                 break
             case .failure(let error) :
-                print(error)
-                let userInfo = Dictionary<String,Any>()
-                //completionHandler(userInfo,error)
+                completion(nil,error)
                 break
             }
             
         })
     }
     
+    
+ 
+}
+
+extension NetworkManager{
+    //Generate custom parse error
+    private func createParseError() -> NSError{
+        let error = NSError(domain: "com.shreya.mydog", code: -1, userInfo: [NSLocalizedDescriptionKey : self.parseErrorMsg])
+        return error
+    }
 }
 
 
