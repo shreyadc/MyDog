@@ -57,7 +57,9 @@ extension LoginViewController
     func validateLogin() -> Bool
     {
         var isValidLogin = false
-        if(usernameTextField.text == "username" && passwordTextField.text == "password")
+        guard let username = usernameTextField.text, let password = passwordTextField.text else {return isValidLogin}
+        
+        if(username.count > 0 && password.count > 0)
         {
             isValidLogin = true
         }
