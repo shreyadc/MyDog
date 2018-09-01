@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +35,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="aV5-eE-Kg4"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home" id="aV5-eE-Kg4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,14 +48,68 @@
                     <view key="view" contentMode="scaleToFill" id="oJk-ib-zie">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lu5-O6-Yry">
+                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Lu5-O6-Yry" secondAttribute="height" multiplier="1:1" id="3IU-SV-kz8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-EE-JtW">
+                                <rect key="frame" x="10" y="415" width="355" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP2-Sj-Smw">
+                                <rect key="frame" x="87" y="455.5" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.1843137255" green="0.23529411759999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="TpL-IF-Idb"/>
+                                    <constraint firstAttribute="width" constant="200" id="caP-oz-qp2"/>
+                                </constraints>
+                                <state key="normal" title="Thats not my dog!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeDogBtnTapped:" destination="hbs-oD-pyo" eventType="touchUpInside" id="3pB-BY-Om1"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cuZ-gP-7U5">
+                                <rect key="frame" x="169" y="189" width="37" height="37"/>
+                                <color key="backgroundColor" red="0.1843137255" green="0.23529411759999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lu5-O6-Yry" firstAttribute="trailing" secondItem="Lvk-fn-mZ4" secondAttribute="trailing" id="1PW-th-NaD"/>
+                            <constraint firstItem="Lu5-O6-Yry" firstAttribute="leading" secondItem="Lvk-fn-mZ4" secondAttribute="leading" id="2QR-1e-eHI"/>
+                            <constraint firstItem="PPv-EE-JtW" firstAttribute="top" secondItem="Lu5-O6-Yry" secondAttribute="bottom" constant="20" id="5bZ-UR-MjR"/>
+                            <constraint firstItem="PPv-EE-JtW" firstAttribute="centerX" secondItem="Lu5-O6-Yry" secondAttribute="centerX" id="CIp-gF-xQk"/>
+                            <constraint firstItem="HP2-Sj-Smw" firstAttribute="centerX" secondItem="PPv-EE-JtW" secondAttribute="centerX" id="FcU-O6-9kK"/>
+                            <constraint firstItem="cuZ-gP-7U5" firstAttribute="centerX" secondItem="Lu5-O6-Yry" secondAttribute="centerX" id="HA5-X3-Q8s"/>
+                            <constraint firstItem="PPv-EE-JtW" firstAttribute="leading" secondItem="Lvk-fn-mZ4" secondAttribute="leading" constant="10" id="Pe8-wY-VZ0"/>
+                            <constraint firstItem="cuZ-gP-7U5" firstAttribute="centerY" secondItem="Lu5-O6-Yry" secondAttribute="centerY" id="X9m-FO-EgM"/>
+                            <constraint firstItem="Lvk-fn-mZ4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HP2-Sj-Smw" secondAttribute="bottom" constant="10" id="bpQ-VC-a7P"/>
+                            <constraint firstItem="HP2-Sj-Smw" firstAttribute="top" secondItem="PPv-EE-JtW" secondAttribute="bottom" constant="20" id="cse-aV-tPP"/>
+                            <constraint firstItem="Lvk-fn-mZ4" firstAttribute="trailing" secondItem="PPv-EE-JtW" secondAttribute="trailing" constant="10" id="nfb-cl-c5x"/>
+                            <constraint firstItem="Lu5-O6-Yry" firstAttribute="top" secondItem="Lvk-fn-mZ4" secondAttribute="top" id="o9C-c6-ffx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lvk-fn-mZ4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Dog" id="ZQf-2Z-SHR"/>
+                    <tabBarItem key="tabBarItem" title="My Dog" image="paw" selectedImage="paw" id="ZQf-2Z-SHR"/>
+                    <connections>
+                        <outlet property="changeDogBtn" destination="HP2-Sj-Smw" id="XaD-aI-wBg"/>
+                        <outlet property="dogImageView" destination="Lu5-O6-Yry" id="ccq-Jz-ZR1"/>
+                        <outlet property="dogNameLabel" destination="PPv-EE-JtW" id="z0z-j7-pdc"/>
+                        <outlet property="loadingView" destination="cuZ-gP-7U5" id="APK-j6-lGl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKp-xE-Thx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="946" y="779"/>
+            <point key="canvasLocation" x="944.79999999999995" y="778.56071964017997"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aRV-2e-yCn">
@@ -62,8 +117,11 @@
                 <tabBarController storyboardIdentifier="RootTabbarViewController" automaticallyAdjustsScrollViewInsets="NO" id="BJW-C3-2uq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I48-d8-1ow">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.1843137255" green="0.23529411759999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.1843137255" green="0.23529411759999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="aoU-4f-J20"/>
@@ -75,4 +133,8 @@
             <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="30" height="30"/>
+        <image name="paw" width="44" height="44"/>
+    </resources>
 </document>

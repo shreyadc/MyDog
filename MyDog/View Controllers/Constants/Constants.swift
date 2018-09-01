@@ -9,5 +9,4 @@
 import Foundation
 
 let isLoginDoneUserDefaultsKey = "isLoginDoneUserDefaultsKey"
-
 let rootTabbarViewController = "RootTabbarViewController"

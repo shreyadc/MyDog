@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
     {
         self.title = "Login"
         
-        loginButton.layer.cornerRadius = 3.0
+        loginButton.layer.cornerRadius = 6.0
         validateLoginButton()
     }
     

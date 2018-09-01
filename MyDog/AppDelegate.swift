@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let isLoggedIn = false//UserDefaults.standard.bool(forKey: isLoginDoneUserDefaultsKey)
+        let isLoggedIn = UserDefaults.standard.bool(forKey: isLoginDoneUserDefaultsKey)
         if isLoggedIn {
             let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: rootTabbarViewController)
             self.window?.rootViewController = rootController
