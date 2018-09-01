@@ -59,14 +59,14 @@
                                     <constraint firstAttribute="width" secondItem="Lu5-O6-Yry" secondAttribute="height" multiplier="1:1" id="3IU-SV-kz8"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-EE-JtW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-EE-JtW">
                                 <rect key="frame" x="181.5" y="415" width="12.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HP2-Sj-Smw">
-                                <rect key="frame" x="87" y="455.5" width="200" height="40"/>
+                                <rect key="frame" x="87" y="528" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.1843137255" green="0.23529411759999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TpL-IF-Idb"/>
@@ -95,8 +95,8 @@
                             <constraint firstItem="cuZ-gP-7U5" firstAttribute="centerX" secondItem="Lu5-O6-Yry" secondAttribute="centerX" id="HA5-X3-Q8s"/>
                             <constraint firstItem="PPv-EE-JtW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lvk-fn-mZ4" secondAttribute="leading" constant="10" id="Pe8-wY-VZ0"/>
                             <constraint firstItem="cuZ-gP-7U5" firstAttribute="centerY" secondItem="Lu5-O6-Yry" secondAttribute="centerY" id="X9m-FO-EgM"/>
-                            <constraint firstItem="Lvk-fn-mZ4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HP2-Sj-Smw" secondAttribute="bottom" constant="10" id="bpQ-VC-a7P"/>
-                            <constraint firstItem="HP2-Sj-Smw" firstAttribute="top" secondItem="PPv-EE-JtW" secondAttribute="bottom" constant="20" id="cse-aV-tPP"/>
+                            <constraint firstItem="Lvk-fn-mZ4" firstAttribute="bottom" secondItem="HP2-Sj-Smw" secondAttribute="bottom" constant="50" id="bpQ-VC-a7P"/>
+                            <constraint firstItem="HP2-Sj-Smw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PPv-EE-JtW" secondAttribute="bottom" constant="20" id="cse-aV-tPP"/>
                             <constraint firstItem="Lvk-fn-mZ4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PPv-EE-JtW" secondAttribute="trailing" constant="10" id="nfb-cl-c5x"/>
                             <constraint firstItem="Lu5-O6-Yry" firstAttribute="top" secondItem="Lvk-fn-mZ4" secondAttribute="top" id="o9C-c6-ffx"/>
                         </constraints>
